@@ -1,0 +1,7 @@
+@mixin formQueryComp {
+
+  &-wrapper {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+}

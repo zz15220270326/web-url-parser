@@ -1,0 +1,32 @@
+@import "./reset.scss";
+@import "./global.scss";
+@import "./display-info-pannel.scss";
+@import "./edit-modal.scss";
+@import "./add-query-modal.scss";
+@import "./form-query-comp.scss";
+@import "./url-config-form.scss";
+
+html,
+body {
+  @include global;
+}
+
+.display-info-pannel {
+  @include displayInfo;
+}
+
+.edit-modal {
+  @include queryForm;
+}
+
+.add-query-modal {
+  @include addQueryModal;
+}
+
+.form-query-comp {
+  @include formQueryComp;
+}
+
+.url-config-form {
+  @include urlConfigForm;
+}

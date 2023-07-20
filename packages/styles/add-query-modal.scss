@@ -1,0 +1,62 @@
+@import "./utils.scss";
+
+@mixin addQueryModal {
+
+  &.n-dialog {
+    width: 700px;
+    max-height: 600px;
+    z-index: 999;
+    background-color: #fff;
+    color: #000;
+    overflow: auto;
+
+    .n-dialog__content {
+      min-height: 300px;
+    }
+
+    .group-items {
+      display: block;
+      width: 100%;
+      height: 90px;
+      flex-direction: column;
+      @include flexCenter;
+
+      &:first-child {
+        margin-top: 30px;
+      }
+
+      .prop-item,
+      .content-item {
+        flex: 1;
+      }
+
+      .prop-item,
+      .content-item {
+        flex: 1;
+        width: 100%;
+        flex-direction: row;
+        line-height: 45px;
+        @include flexCenter;
+
+        .tip {
+          flex: 2;
+          text-align: right;
+          padding-right: 12px;
+        }
+        .comp {
+          flex: 9;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .btn-group {
+      width: 100%;
+      text-align: right;
+
+      .n-button {
+        margin-right: 8px;
+      }
+    }
+  }
+}
