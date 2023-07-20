@@ -1,7 +1,7 @@
 <!-- UrlConfigForm -->
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue';
-  import { NInput, NButton } from 'naive-ui';
+  import { NInput, NButton, useDialog } from 'naive-ui';
 
   import { compProps, compCls, compEmits } from '../../../configs';
 
@@ -10,26 +10,37 @@
   const props = defineProps(compProps.UrlConfigForm);
   const emit = defineEmits(compEmits.UrlConfigForm);
   
+  const nDialog = useDialog();
+
   const oInputRef = ref();
+  const inputValueRef = ref<string>('');
 
   onMounted(() => {
     handleInitInput();
   });
 
   function handleInitInput() {
+    inputValueRef.value = props.url;
     onOperateInput((oInput) => {
-      oInput.value = props.url;
       oInput.focus();
     });
   }
 
   function handleSubmit() {
     onOperateInput((oInput) => {
-      const inputValue: string = oInput.value.trim();
+      const inputValue: string = inputValueRef.value.trim();
 
       if (!inputValue) {
         return;
       }
+      nDialog.warning({
+        title: '确认',
+        content: '是否需要覆盖 url 的内容 ? (请谨慎操作)',
+        positiveText: '确定',
+        negativeText: '取消',
+        onPositiveClick() {},
+        onNegativeClick() {}
+      });
     });
   }
 
@@ -64,10 +75,11 @@
         placeholder="请输入 url 的值"
         :class="cls.ItemComponent"
         size="large"
+        v-model:value="inputValueRef"
       />
     </div>
     <div :class="cls.BtnGroup">
-      <n-button :class="cls.Btn">重置内容</n-button>
+      <n-button :class="cls.Btn" @click="handleInitInput">重置内容</n-button>
       <n-button :class="cls.Btn" type="info">确认修改</n-button>
     </div>
   </div>
