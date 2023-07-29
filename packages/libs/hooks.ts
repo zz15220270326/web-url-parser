@@ -69,7 +69,7 @@ export function useCopyValue(options: ICallbackOptions) {
       );
     }
     return new Promise<boolean>((resolve, reject) => {
-      useDOMCopy(value, ({ el }) => {
+      domCopy(value, ({ el }) => {
         try {
           el.select();
           el.focus();
@@ -82,7 +82,7 @@ export function useCopyValue(options: ICallbackOptions) {
     });
   }
 
-  function useDOMCopy(
+  function domCopy(
     value: string,
     callback: ({ el }: { el: HTMLTextAreaElement }) => void
   ) {

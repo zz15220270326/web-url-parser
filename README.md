@@ -1,6 +1,7 @@
 # @vue-service-components/web-url-parser
 
-说明: 这是在 `@vue-service-components` 下面的一个 `Vue3.x` 组件，目的用于解析 & 操作 url
+说明: 
+  - 这是在 `@vue-service-components` 下面的一个 `Vue3.x` 组件，目的用于解析 & 操作 url
 
 ## 基本用法
 
@@ -93,3 +94,5 @@ app.mount('#app');
 ```
 
 ## 发布版本
+
+  - `beta 0.0.1` 

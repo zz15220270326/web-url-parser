@@ -53,11 +53,13 @@ class Logger {
     return this._currentKey;
   }
 
-  add(logInfo: ILogInfo) {
+  /** 添加一条日志信息到 logList 里面 */
+  public add(logInfo: ILogInfo) {
     this.logInfoList.value.unshift(logInfo);
   }
 
-  revert(id: string) {
+  /** 根据 id 将当前的日志回滚到某一个版本 */
+  public revert(id: string) {
     const logInfoList = this.logInfoList.value;
     const idIndex = logInfoList.findIndex(item => id == item.id);
 
